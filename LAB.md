@@ -25,6 +25,8 @@ For this assignment:
 * Your state will live in the `App` component. Initialize state using `state = {};` as a class property
 * Write JSX in the `render` method of the `App` component
   * Use `const { field1, field2 } = this.state` to access state values
+  * Remember to bind your methods using `this.someMethod = this.someMethod.bind(this)` in the Component class
+  constructor
   * Use `{this.someMethod}` (or whatever you need from the event object) to call
   a method you create on the component that in turn calls `this.setState({ prop: newValue })` to update the value
 * Use destructuring and other advanced javascript techniques to keep the code clean and easier to read.
