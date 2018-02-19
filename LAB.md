@@ -1,9 +1,14 @@
-Meme Generator
+Meme Generator using Webpack and React
  ===
  
  ## Description
  
-Structure your project and build system using `webpack` and `package.json` and associated dependencies. Follow the in-class example closely to ensure that you have all elements of the (development) build system in place. Config files, ignore files, etc. etc.
+Structure your project and build system using `webpack` and `package.json` and associated dependencies. Follow the in-class example closely to ensure that you have all elements of the (development) build system in place. Remember all your Config files, ignore files, etc. etc.
+
+* For this lab, create (hand type) your webpack.config.js **from scratch**, check at each step that it is working and
+leaving a **commit history** as each part is added.
+
+## Features
 
 Create a WYSIWYG editor that allows user to create a meme image with text.
 
@@ -22,18 +27,21 @@ Main things:
 For this assignment:
  
 * You start with a single `App` component
-* Your state will live in the `App` component. Initialize state using `state = {};` as a class property
+* Your state will live in the `App` component. Initialize state using `state = {};` in the constructor
 * Write JSX in the `render` method of the `App` component
     * Use `const { field1, field2 } = this.state` to access state values
     * Remember to bind your methods using `this.someMethod = this.someMethod.bind(this)` in the Component class
     constructor
     * Use `{this.someMethod}` (or whatever you need from the event object) to call
-    a method you create on the component that in turn calls `this.setState({ prop: newValue })` to update the value
+    a method you create on the component that:
+        * calls `this.setState({ prop: newValue })` to update the value,
+        * and/or does other needed work. 
 * Use destructuring and other advanced javascript techniques to keep the code clean and easier to read.
   
 ## Rubric
   
-* Works **2.5pts**
-* Curiosity/Going Beyond What we did in class **2.5pts**
-* Idomatic React/JSX/JavaScript **2.5pts**
-* Clean code - using destructuring and other techniques to reduce duplication and redundancy **2.5pts**
+* Bespoke webpack config with commit history **2pts**
+* Functionality works for the end user **2pts**
+* Curiosity/Going Beyond What we did in class **2pts**
+* Idomatic React/JSX/JavaScript **2pts**
+* Clean code - using destructuring and other techniques to reduce duplication and redundancy **2pts**
