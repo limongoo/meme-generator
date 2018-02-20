@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/limongoo/meme-generator#readme",
   "devDependencies": {
+    "clean-webpack-plugin": "^0.1.18",
     "webpack": "^3.11.0"
   }
 }

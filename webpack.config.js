@@ -5,5 +5,8 @@ module.exports = {
   output: {
     path,
     filename: 'bundle.[hash].js',
-  }
+  },
+  plugins: [
+    new CleanWebpackPlugin(`${path}/bundle.*.js`), 
+  ],
 };
