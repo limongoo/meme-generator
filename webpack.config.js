@@ -1,3 +1,5 @@
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 const path = `${__dirname}/build`;
 
 module.exports = {
