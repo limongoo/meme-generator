@@ -50,7 +50,6 @@ input {
 .textTop {
   position: absolute;
   z-index: 10;
-  /* color: #fff; */
   top: 2rem;
   left: 50%;
   transform: translateX(-50%)
@@ -59,7 +58,6 @@ input {
 .textBottom {
   position: absolute;
   z-index: 10;
-  /* color: #fff; */
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%)

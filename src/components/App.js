@@ -76,6 +76,7 @@ export default class App extends Component {
 
     return (
       <div className="app">
+      
         <header role="banner" id="header">
           <h1>Meme Generator</h1>
         </header>
@@ -153,6 +154,7 @@ export default class App extends Component {
         <footer role="contentinfo" id="footer">
           <p>(c) Meme Generator | <a href="https://github.com/limongoo/meme-generator/tree/ivan" target="_blank" rel="author noopener noreferrer">Ivan Limongan</a></p>
         </footer>
+
       </div>
     );
   }
