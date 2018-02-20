@@ -11,7 +11,7 @@ export default class App extends Component {
     this.state = {
       currentTop: '',
       currentBottom: '',
-      image: ''
+      image: 'https://limongoo.github.io/301portfolio/public/img/thumb/refresh.jpg'
     };
 
     this.handleInput = this.handleInput.bind(this);
@@ -50,7 +50,7 @@ export default class App extends Component {
 
           <p>
             <label>
-              Top Text:
+              Top Text: &nbsp;
               <input
                 type="text"
                 onChange={this.handleInput}
@@ -62,7 +62,7 @@ export default class App extends Component {
 
           <p>
             <label>
-              Bottom Text:
+              Bottom Text: &nbsp;
               <input
                 type="text"
                 onChange={this.handleInputBottom}
@@ -73,7 +73,7 @@ export default class App extends Component {
           </p>
 
           <p>
-            Background Image:
+            Background Image: &nbsp;
             <input
               name="url" 
               defaultValue={image} 
@@ -83,9 +83,9 @@ export default class App extends Component {
           </p>
 
           <section className="output">
-            <div>{currentTop ? currentTop : 'Top text here'}</div>
+            <h3 className="textTop">{currentTop ? currentTop : 'Top text'}</h3>
 
-            <div>{currentBottom ? currentBottom : 'Bottom text here'}</div>
+            <h3 className="textBottom">{currentBottom ? currentBottom : 'Bottom text'}</h3>
             
             <div
               className="background"

@@ -10,7 +10,7 @@
 
 #header {
   grid-area: header;
-  padding: 2rem;
+  padding: 2rem 2rem 0rem;
   text-align: center;
   position: relative;
 }
@@ -18,6 +18,7 @@
 #main {
   grid-area: content;
   text-align: center;
+  margin: 0 auto;
 }
 
 #footer {
@@ -31,7 +32,42 @@
   margin: 0 auto;
 }
 
+
+.output {
+  position: relative;
+  width: 320px;
+  height: 320px;
+}
+
 .background {
-  width: 500px;
-  height: 500px;
+  position: absolute;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(53, 53, 53, 0.4);
+}
+
+.textTop {
+  position: absolute;
+  z-index: 10;
+  color: #fff;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%)
+}
+
+.textBottom {
+  position: absolute;
+  z-index: 10;
+  color: #fff;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%)
+}
+
+@media (min-width: 600px) {
+  .output {
+    width: 500px;
+    height: 500px;
+  }
 }
