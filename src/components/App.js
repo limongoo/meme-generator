@@ -24,7 +24,10 @@ export default class App extends Component {
         <section role="main" id="main">
 
           <section>
-            Controls:
+            <label>
+              Top Text:
+              <input type="text"/>
+            </label>
           </section>
 
           <section>
