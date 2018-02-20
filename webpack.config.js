@@ -6,7 +6,11 @@ module.exports = {
     path,
     filename: 'bundle.[hash].js',
   },
+  devServer: {
+    contentBase: './build',
+  },
   plugins: [
     new CleanWebpackPlugin(`${path}/bundle.*.js`), 
   ],
+  
 };
