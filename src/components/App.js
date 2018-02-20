@@ -1,5 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
+// import dom2image from 'dom-to-image';
+// import fileSaver from 'file-saver';
 
 export default class App extends Component {
 
@@ -8,11 +10,13 @@ export default class App extends Component {
 
     this.state = {
       currentTop: '',
-      currentBottom: ''
+      currentBottom: '',
+      image: ''
     };
 
     this.handleInput = this.handleInput.bind(this);
     this.handleInputBottom = this.handleInputBottom.bind(this);
+    this.getImage = this.getImage.bind(this);
   }
 
   handleInput({ target }) {
@@ -21,15 +25,20 @@ export default class App extends Component {
     });
   }
 
-  handleInputBottom ({ target }) {
+  handleInputBottom({ target }) {
     this.setState({
       currentBottom: target.value
     });
   }
   
+  getImage({ target }) {
+    this.setState({
+      image: target.value
+    });
+  }
 
   render() {
-    const { currentTop, currentBottom } = this.state;
+    const { currentTop, currentBottom, image } = this.state;
 
     return (
       <div className="app">
@@ -39,7 +48,7 @@ export default class App extends Component {
 
         <section role="main" id="main">
 
-          <section>
+          <p>
             <label>
               Top Text:
               <input
@@ -49,9 +58,9 @@ export default class App extends Component {
                 value={currentTop}
               />
             </label>
-          </section>
+          </p>
 
-          <section>
+          <p>
             <label>
               Bottom Text:
               <input
@@ -61,14 +70,28 @@ export default class App extends Component {
                 value={currentBottom}
               />
             </label>
-          </section>
+          </p>
+
+          <p>
+            Background Image:
+            <input
+              name="url" 
+              defaultValue={image} 
+              onChange={this.getImage}
+              placeholder='image url here'
+            />
+          </p>
 
           <section className="output">
             <div>{currentTop ? currentTop : 'Top text here'}</div>
 
             <div>{currentBottom ? currentBottom : 'Bottom text here'}</div>
             
-            <div></div>
+            <div
+              className="background"
+              ref={node => this.div = node}
+              style={{ backgroundImage: `url(${image})` }}
+            ></div>
           </section>
 
         </section>

@@ -30,3 +30,8 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+
+.background {
+  width: 500px;
+  height: 500px;
+}
