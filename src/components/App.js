@@ -1,7 +1,7 @@
 import './App.css';
 import React, { Component } from 'react';
-// import dom2image from 'dom-to-image';
-// import fileSaver from 'file-saver';
+import dom2image from 'dom-to-image';
+import fileSaver from 'file-saver';
 
 export default class App extends Component {
 
@@ -17,6 +17,7 @@ export default class App extends Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleInputBottom = this.handleInputBottom.bind(this);
     this.getImage = this.getImage.bind(this);
+    this.handleExport = this.handleExport.bind(this);
   }
 
   handleInput({ target }) {
@@ -34,6 +35,12 @@ export default class App extends Component {
   getImage({ target }) {
     this.setState({
       image: target.value
+    });
+  }
+
+  handleExport() {
+    dom2image.toBlob(this.section).then(blob => {
+      fileSaver.saveAs(blob, 'awesome-meme.jpg');
     });
   }
 
@@ -82,17 +89,22 @@ export default class App extends Component {
             />
           </p>
 
-          <section className="output">
+          <section 
+            className="output" 
+            ref={node => this.section = node}>
+
             <h3 className="textTop">{currentTop ? currentTop : 'Top text'}</h3>
 
             <h3 className="textBottom">{currentBottom ? currentBottom : 'Bottom text'}</h3>
             
             <div
               className="background"
-              ref={node => this.div = node}
               style={{ backgroundImage: `url(${image})` }}
             ></div>
+
           </section>
+          
+          <button className="export-button" onClick={this.handleExport}>Export</button>
 
         </section>
 

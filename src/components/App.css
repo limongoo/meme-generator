@@ -65,6 +65,22 @@
   transform: translateX(-50%)
 }
 
+.export-button {
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: .7rem 1rem;
+  color: #fff;
+  background-color: #f15e22;
+  transition: 0.3s ease all;
+  border: 0px;
+  border-radius: 4px;
+}
+
+.export-button:hover {
+  background-color: rgb(141, 54, 20);
+}
+
 @media (min-width: 600px) {
   .output {
     width: 500px;
