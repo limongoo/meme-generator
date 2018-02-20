@@ -11,12 +11,17 @@ export default class App extends Component {
     this.state = {
       currentTop: '',
       currentBottom: '',
-      image: 'https://limongoo.github.io/301portfolio/public/img/thumb/refresh.jpg'
+      colorTop: '#ffffff',
+      colorBottom: '#ffffff',
+      image: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTIxNTIwMDA5MV5BMl5BanBnXkFtZTYwMjMwMTY3._V1_.jpg'
     };
 
     this.handleInput = this.handleInput.bind(this);
     this.handleInputBottom = this.handleInputBottom.bind(this);
-    this.getImage = this.getImage.bind(this);
+    this.handleColor = this.handleColor.bind(this);
+    this.handleColorBottom = this.handleColorBottom.bind(this);
+    this.handleImage = this.handleImage.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
     this.handleExport = this.handleExport.bind(this);
   }
 
@@ -32,10 +37,32 @@ export default class App extends Component {
     });
   }
   
-  getImage({ target }) {
+  handleColor({ target }) {
+    this.setState({
+      colorTop: target.value
+    });
+  }
+
+  handleColorBottom({ target }) {
+    this.setState({
+      colorBottom: target.value
+    });
+  }
+
+  handleImage({ target }) {
     this.setState({
       image: target.value
     });
+  }
+
+  handleUpload({ target }) {
+    const reader = new FileReader();
+
+    reader.readAsDataURL(target.files[0]);
+
+    reader.onload = () => {
+      this.setState({ image: reader.result });
+    };
   }
 
   handleExport() {
@@ -45,7 +72,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { currentTop, currentBottom, image } = this.state;
+    const { currentTop, currentBottom, colorTop, colorBottom, image } = this.state;
 
     return (
       <div className="app">
@@ -63,6 +90,13 @@ export default class App extends Component {
                 onChange={this.handleInput}
                 placeholder='type here'
                 value={currentTop}
+              />&nbsp;
+
+              Color: &nbsp;
+              <input
+                type="color"
+                onChange={this.handleColor}
+                value={colorTop}
               />
             </label>
           </p>
@@ -75,6 +109,13 @@ export default class App extends Component {
                 onChange={this.handleInputBottom}
                 placeholder='type here'
                 value={currentBottom}
+              />&nbsp;
+
+              Color: &nbsp;
+              <input
+                type="color"
+                onChange={this.handleColorBottom}
+                value={colorBottom}
               />
             </label>
           </p>
@@ -84,18 +125,19 @@ export default class App extends Component {
             <input
               name="url" 
               defaultValue={image} 
-              onChange={this.getImage}
+              onChange={this.handleImage}
               placeholder='image url here'
-            />
+            /> &nbsp;
+            <input type="file" onChange={this.handleUpload}/>
           </p>
 
           <section 
             className="output" 
             ref={node => this.section = node}>
 
-            <h3 className="textTop">{currentTop ? currentTop : 'Top text'}</h3>
+            <h3 className="textTop" style={{ color: `${colorTop}` }}>{currentTop ? currentTop : 'I Eat Burritos'}</h3>
 
-            <h3 className="textBottom">{currentBottom ? currentBottom : 'Bottom text'}</h3>
+            <h3 className="textBottom" style={{ color: `${colorBottom}` }}>{currentBottom ? currentBottom : 'All my life'}</h3>
             
             <div
               className="background"
