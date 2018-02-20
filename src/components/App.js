@@ -7,10 +7,12 @@ export default class App extends Component {
     super();
 
     this.state = {
-      currentTop: ''
+      currentTop: '',
+      currentBottom: ''
     };
 
     this.handleInput = this.handleInput.bind(this);
+    this.handleInputBottom = this.handleInputBottom.bind(this);
   }
 
   handleInput({ target }) {
@@ -19,8 +21,15 @@ export default class App extends Component {
     });
   }
 
+  handleInputBottom ({ target }) {
+    this.setState({
+      currentBottom: target.value
+    });
+  }
+  
+
   render() {
-    const { currentTop } = this.state;
+    const { currentTop, currentBottom } = this.state;
 
     return (
       <div className="app">
@@ -45,12 +54,21 @@ export default class App extends Component {
           <section>
             <label>
               Bottom Text:
-              <input type="text"/>
+              <input
+                type="text"
+                onChange={this.handleInputBottom}
+                placeholder='type here'
+                value={currentBottom}
+              />
             </label>
           </section>
 
           <section className="output">
             <div>{currentTop ? currentTop : 'Top text here'}</div>
+
+            <div>{currentBottom ? currentBottom : 'Bottom text here'}</div>
+            
+            <div></div>
           </section>
 
         </section>
