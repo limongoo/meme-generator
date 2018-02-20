@@ -1,0 +1,19 @@
+{
+  "name": "meme-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/limongoo/meme-generator.git"
+  },
+  "author": "ivan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/limongoo/meme-generator/issues"
+  },
+  "homepage": "https://github.com/limongoo/meme-generator#readme"
+}
