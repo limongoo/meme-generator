@@ -16,7 +16,7 @@ export default class App extends Component {
 
 
     return (
-      <div>
+      <div className="app">
         <header role="banner" id="header">
           <h1>Meme Generator</h1>
         </header>
